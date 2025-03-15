@@ -3,37 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool Website</title>
+    <title>Important Update</title>
     <style>
         body {
-            transition: transform 0.5s ease;
             text-align: center;
             font-size: 24px;
+            font-family: Arial, sans-serif;
+            transition: all 0.5s ease;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to tesome site!</h1>
-    <script>
-        function goFullscreenAndFlip() {
-            let doc = document.documentElement;
-            if (doc.requestFullscreen) {
-                doc.requestFullscreen();
-            } else if (doc.mozRequestFullScreen) {
-                doc.mozRequestFullScreen();
-            } else if (doc.webkitRequestFullscreen) {
-                doc.webkitRequestFullscreen();
-            } else if (doc.msRequestFullscreen) {
-                doc.msRequestFullscreen();
-            }
+    <h1>⚠️ System Display Error Detected ⚠️</h1>
+    <p>Your screen settings may be incorrect.</p>
+    <p>Please press <b>Ctrl + Alt + ↓</b> to fix it.</p>
 
-            setTimeout(() => {
-                document.body.style.transform = "rotate(180deg)";
-            }, 2000); // Flip screen after 2 seconds
+    <script>
+        function startGlitchEffect() {
+            let intensity = 10; // Shake intensity
+            setInterval(() => {
+                document.body.style.transform = 
+                    `translate(${Math.random() * intensity - (intensity / 2)}px, ${Math.random() * intensity - (intensity / 2)}px)`;
+            }, 50);
         }
 
-        // Run on page load
-        goFullscreenAndFlip();
+        setTimeout(() => {
+            alert("Your screen may be upside-down! Follow the instructions to fix it.");
+            startGlitchEffect();
+        }, 2000); // Show the alert after 2 seconds
     </script>
 </body>
 </html>
