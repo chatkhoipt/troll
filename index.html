@@ -6,16 +6,34 @@
     <title>Cool Website</title>
     <style>
         body {
-            transition: all 0.5s ease;
+            transition: transform 0.5s ease;
+            text-align: center;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to this awesome site!</h1>
     <script>
-        setTimeout(() => {
-            document.body.style.transform = "rotate(180deg)";
-        }, 2000); // Delay for 2 seconds before triggering effect
+        function goFullscreenAndFlip() {
+            let doc = document.documentElement;
+            if (doc.requestFullscreen) {
+                doc.requestFullscreen();
+            } else if (doc.mozRequestFullScreen) {
+                doc.mozRequestFullScreen();
+            } else if (doc.webkitRequestFullscreen) {
+                doc.webkitRequestFullscreen();
+            } else if (doc.msRequestFullscreen) {
+                doc.msRequestFullscreen();
+            }
+
+            setTimeout(() => {
+                document.body.style.transform = "rotate(180deg)";
+            }, 2000); // Flip screen after 2 seconds
+        }
+
+        // Run on page load
+        goFullscreenAndFlip();
     </script>
 </body>
 </html>
