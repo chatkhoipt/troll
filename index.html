@@ -3,34 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Important Update</title>
+    <title>System Error</title>
     <style>
         body {
             text-align: center;
             font-size: 24px;
             font-family: Arial, sans-serif;
-            transition: all 0.5s ease;
+            transition: all 0.2s ease-in-out;
+            cursor: none; /* Hides cursor */
+        }
+        .glitch {
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+            animation: glitchEffect 0.1s infinite;
+        }
+        @keyframes glitchEffect {
+            0% { transform: translateX(-2px); }
+            50% { transform: translateX(2px); }
+            100% { transform: translateX(-2px); }
         }
     </style>
 </head>
 <body>
-    <h1>⚠️ System Display Error Detected ⚠️</h1>
-    <p>Your screen settings may be incorrect.</p>
-    <p>Please press <b>Ctrl + Alt + ↓</b> to fix it.</p>
+    <h1 class="glitch">⚠️ SYSTEM DISPLAY ERROR ⚠️</h1>
+    <p>Your display settings are incorrect. Press <b>Ctrl + Alt + ↓</b> to reset them.</p>
 
     <script>
-        function startGlitchEffect() {
-            let intensity = 10; // Shake intensity
+        function shakeScreen() {
             setInterval(() => {
                 document.body.style.transform = 
-                    `translate(${Math.random() * intensity - (intensity / 2)}px, ${Math.random() * intensity - (intensity / 2)}px)`;
+                    `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
             }, 50);
         }
 
-        setTimeout(() => {
-            alert("Your screen may be upside-down! Follow the instructions to fix it.");
-            startGlitchEffect();
-        }, 2000); // Show the alert after 2 seconds
+        function randomTypingEffect() {
+            document.addEventListener('keydown', (e) => {
+                e.preventDefault();
+                document.body.innerHTML += String.fromCharCode(33 + Math.random() * 94);
+            });
+        }
+
+        function fakeErrorPopup() {
+            setTimeout(() => {
+                alert("System Error! Your display may be flipped. Follow the instructions to fix it.");
+            }, 2000);
+        }
+
+        // Run all effects
+        fakeErrorPopup();
+        shakeScreen();
+        randomTypingEffect();
     </script>
 </body>
 </html>
